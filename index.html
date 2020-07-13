@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vali Admin - Free Bootstrap 4 Admin Template</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <!-- Font-icon css-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style type="text/css">
+      .info {
+        cursor: pointer;
+      }
+      .app {display:none;}
+      .preload { width:100px;
+          height: 100px;
+          position: fixed;
+          top: 50%;
+          left: 45%;}
+
+    </style>
+  </head>
+  <body >
+
+    <div class="preload"><img src="http://i.imgur.com/KUJoe.gif">
+    </div>
+    <div class="content app sidebar-mini">
+
+    
+    <!-- Navbar-->
+    <header class="app-header">
+      <a class="app-header__logo" href="index.html">MTS</a>
+      <!-- Sidebar toggle button--><a
+        class="app-sidebar__toggle"
+        href="javascript:void(0)"
+        data-toggle="sidebar"
+        aria-label="Hide Sidebar"
+      ></a>
+      <!-- Navbar Right Menu-->
+      <ul class="app-nav">
+        <!-- <span class="float-left"><h3>Medicine Tracking System</h3></span> -->
+        <h3 style="position: absolute;left: 45%; color: #ffffff;">Medicine Tracking System</h3>
+        <!-- User Menu-->
+        <li class="dropdown">
+          <a
+            class="app-nav__item"
+            href="javascript:void(0)"
+            data-toggle="dropdown"
+            aria-label="Open Profile Menu"
+            ><i class="fa fa-user fa-lg"></i> admin</a
+          >
+          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            <li>
+              <a class="dropdown-item" href="javascript:void(0)"
+                ><i class="fa fa-user fa-lg"></i> Profile</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="javascript:void(0)" onclick="logout()"
+                ><i class="fa fa-sign-out fa-lg"></i> Logout</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+      <div class="app-sidebar__user">
+        <img
+          class="app-sidebar__user-avatar" width="50px"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRRQbRi89SUy7dODaowxvYztFnrS8SBKTWCd7dfsZWOs6xU5p9C&usqp=CAU"
+          alt="User Image"
+        />
+        <div>
+          <p class="app-sidebar__user-name">Medico</p>
+        </div>
+      </div>
+      <ul class="app-menu">
+        <li>
+          <a
+            class="app-menu__item"
+            href="javascript:showTarget('getvotecount')"
+          >
+            <i class="app-menu__icon fa fa-star"></i>
+
+            <!-- <img style="width: 20px; background-color: #ffffff;" src="https://cdn4.iconfinder.com/data/icons/election-16/100/election_vote_voting-03-512.png"> -->
+            <span class="app-menu__label">MEDICINE DETAILS</span></a
+          >
+        </li>
+        <li>
+          <a
+            class="app-menu__item"
+            href="javascript:showTarget('manufacturershow')"
+          >
+            <i class="app-menu__icon fa fa-star"></i>
+
+            <!-- <img style="width: 20px; background-color: #ffffff;" src="https://cdn4.iconfinder.com/data/icons/election-16/100/election_vote_voting-03-512.png"> -->
+            <span class="app-menu__label">MANUFACTURERS</span></a
+          >
+        </li>
+        <li>
+          <a
+            class="app-menu__item"
+            href="javascript:showTarget('distributor')"
+          >
+            <i class="app-menu__icon fa fa-star"></i>
+
+            <!-- <img style="width: 20px; background-color: #ffffff;" src="https://cdn4.iconfinder.com/data/icons/election-16/100/election_vote_voting-03-512.png"> -->
+            <span class="app-menu__label">DISTRIBUTORS</span></a
+          >
+        </li>
+        <li>
+          <a
+            class="app-menu__item"
+            href="javascript:showTarget('retailer')"
+          >
+            <i class="app-menu__icon fa fa-star"></i>
+
+            <!-- <img style="width: 20px; background-color: #ffffff;" src="https://cdn4.iconfinder.com/data/icons/election-16/100/election_vote_voting-03-512.png"> -->
+            <span class="app-menu__label">RETAILERS</span></a
+          >
+        </li>
+      </ul>
+    </aside>
+    <main class="app-content">
+      <div class="row app-title vote-links d-flex justify-content-between">
+        <div class="col">
+          <h1 id="pagename"><i class="fa fa-vote"></i > </h1>
+        </div>
+        
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item"><a href="javascript:void(0)">Medicine Tracking System</a></li>
+        </ul>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small primary coloured-icon">
+            <!-- <i class="icon fa fa-users fa-3x"></i> -->
+            <img
+              style="width: 75px; padding: 0.75rem;"
+              src="https://cdn3.iconfinder.com/data/icons/pharmacy-elements-1/64/Antibiotic-medicine-drugstore-drugs-pharmacy-512.png"
+            />
+            <div class="info" id="enrollcandidate">
+              <h4>Enroll Medicine</h4>
+              <!-- <p><b>5</b></p> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="widget-small warning coloured-icon">
+            <!-- <i class="icon fa fa-files-o fa-3x"></i> -->
+            <img
+              style="width: 75px; padding: 0.75rem;"
+              src="https://img.icons8.com/pastel-glyph/2x/hand-with-a-pill.png"
+            />
+            <div class="info" id="enrollvoter">
+              <h4>Medicine List</h4>
+              <!-- <p><b>10</b></p> -->
+            </div>
+          </div>
+        </div>
+      <div class="row container-fluid" id="enrollcandidatediv">
+        <div class="tile col-md-12">
+          <h3 class="tile-title d-flex justify-content-center">
+            Enroll Medicine
+          </h3>
+          <div class="tile-body">
+            <form class="form-horizontal">
+              <div class="form-group row">
+                <label class="control-label col-md-3">Medicine Id</label>
+                <div class="col-md-8">
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="en_MedicineId"
+                    placeholder="Enter Medicine Id"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="control-label col-md-3">Name</label>
+                <div class="col-md-8">
+                  <input
+                    class="form-control"
+                    type="text"
+                    id="en_MedicineName"
+                    placeholder="Enter Medicine name"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="control-label col-md-3">Medicine Manufacture Date</label>
+                <div class="col-md-8">
+                  <input
+                    class="form-control col-md-8"
+                    type="date"
+                    id="en_mandate"
+                    placeholder="Enter Manufactur Date"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="control-label col-md-3">Mesicine Expire Date</label>
+                <div class="col-md-8">
+                  <input
+                    class="form-control col-md-8"
+                    type="date"
+                    id="en_expdate"
+                    placeholder="Enter Expiry Date"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="tile-footer">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-3">
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  id="button_enrollCandidate"
+                >
+                  <i class="fa fa-fw fa-lg fa-check-circle"></i>Enrole</button
+                >&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="javascript:void(0)"
+                  ><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row container-fluid" id="enrollvoterdiv">
+        <div class="tile col-md-12">
+          <h3 class="tile-title">Medicines List</h3>
+          <div style="position: absolute;top: 15px;right: 15px;width: 100px;text-align:right;">
+            <i class="fa fa-refresh" aria-hidden="true" onclick="updateUI(true)"></i>
+          </div>
+          <div class="tile-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Medicine ID</th>
+                  <th>Medicine Name</th>
+                  <th>Manufacture Date</th>
+                  <th>Expire Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="medicineslistdiv">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row container-fluid" id="getvotecountdiv">
+        <div class="tile col-md-6">
+          <h3 class="tile-title">Get Medicine Hand OFF</h3>
+          <div class="tile-body">
+            <form class="form-horizontal">
+              <div class="form-group row">
+                <label class="control-label col-md-3">Medicine Id</label>
+                <div class="col-md-8">
+                  <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Enter Medicine Id"
+                    id="gvc_CandiadteId"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="tile-footer">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-3">
+                <button class="btn btn-primary" type="button" onclick="getmedicine()">
+                  <i class="fa fa-fw fa-lg fa-check-circle"></i>Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tile col-md-4 ml-2">
+          <h3 class="tile-title">Medicine With</h3>
+          <div class="tile-body d-flex justify-content-center" >
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Location</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-info" id="medinfo">
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row container-fluid" id="manufacturershowdiv">
+        <div class="tile col-md-12">
+          <h3 class="tile-title">List Of Manufacturers</h3>
+          <div class="tile-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>ID</th>
+                  <th>Manufacture Name</th>
+                  <th>Location</th>
+                </tr>
+              </thead>
+              <tbody id="manafacturetable">
+              </tbody>
+            </table>
+          </div>
+           
+      </div>
+      </div> 
+      <div class="row container-fluid" id="distributordiv">
+        <div class="tile col-md-12">
+          <h3 class="tile-title">List Of Distributors</h3>
+          <div class="tile-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>ID</th>
+                  <th>Distributor Name</th>
+                  <th>Location</th>
+                </tr>
+              </thead>
+              <tbody id="distributortable">
+              </tbody>
+            </table>
+          </div>
+          
+      </div>
+      </div>
+      <div class="row container-fluid" id="retailerdiv">
+        <div class="tile col-md-12">
+          <h3 class="tile-title">List Of Retailers</h3>
+          <div class="tile-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>ID</th>
+                  <th>Retailer Name</th>
+                  <th>Location</th>
+                </tr>
+              </thead>
+              <tbody id="retailertable">
+              </tbody>
+            </table>
+          </div>
+          
+      </div>
+      </div>
+      
+      
+    </main>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Select Moving Detail</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for=""></label>
+              <select class="form-control" name="" id="movingdetail">
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="moveToDistributer()">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleRetailerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Select Moving Detail</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for=""></label>
+              <select class="form-control" name="" id="movingretailerdetail">
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="moveToRetailer()">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+    //   $(function() {
+    // $(".preload").fadeOut(2000, function() {
+    //     $(".app").fadeIn(1000);        
+    // });
+// });
+    </script>
+  </body>
+</html>

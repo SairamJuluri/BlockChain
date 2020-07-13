@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Login</title>
+    
+  </head>
+  <body>
+    <section class="material-half-bg">
+      <div class="cover"></div>
+    </section>
+    <section class="login-content">
+      <div class="logo">
+        <h1>Medicine Tracking System</h1>
+      </div>
+      <div class="col-md-6" id="login-div">
+        <div class="tile">
+          <div class="overlay" id="login-overlay">
+            <div class="m-loader mr-4">
+              <svg class="m-circular" viewBox="25 25 50 50">
+                  <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"></circle>
+              </svg>
+            </div>
+            <!-- <h3 class="l-text">Loading</h3> -->
+          </div>
+          <div class="tile-body">
+            <form class="login-form" action="index.html">
+                <div class="alert alert-danger" id="login-alert">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    <strong>Error! </strong> Wring User Credentials.
+                  </div>
+                <h3 class="login-head" style="text-align: center;"><i class="fa fa-lg fa-fw fa-user"></i>SIGN IN</h3>
+                <div class="form-group">
+                  <label class="control-label">USERTYPE</label>
+                    <select class="form-control" name="" id="loginType">
+                      <option value="Manufacturer">Manufacturer</option>
+                      <option value="Distributor">Distributor</option>
+                      <option value="Retailer">Retailer</option>
+                    </select>
+                  
+                </div>
+                <div class="form-group">
+                  <label class="control-label">Login ID</label>
+                  <input class="form-control" type="text" placeholder="Login ID" id="login_id">
+                </div>
+                <div class="form-group">
+                  <div class="utility">
+                    <p class="semibold-text mb-2"><a href="javascript:void(0)" onclick="showSignup()" >Sign Up Now !</a></p>
+                  </div>
+                </div>
+                <div class="form-group btn-container">
+                  <span class="btn btn-primary btn-block" onclick="signin()"><i class="fa fa-sign-in fa-lg fa-fw" ></i>SIGN IN</span>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6" id="signup-div">
+        <div class="tile">
+          <div class="overlay" id="signup-overlay">
+            <div class="m-loader mr-4">
+              <svg class="m-circular" viewBox="25 25 50 50">
+                  <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"></circle>
+              </svg>
+            </div>
+            <!-- <h3 class="l-text">Loading</h3> -->
+          </div>
+          <div class="tile-body">
+            <form class="forget-form" >
+                <div class="alert alert-danger" id="signup-alert">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    <strong>Error! </strong> User Id Already Taken .
+                  </div>
+                <h3 class="login-head" style="text-align: center;"><i class="fa fa-lg fa-fw fa-user"></i>SIGN UP</h3>
+                <div class="form-group">
+                    <label class="control-label">USERTYPE</label>
+                      <select class="form-control" name="" id="reg_loginType">
+                        <option value="Manufacturer">Manufacturer</option>
+                        <option value="Distributor">Distributor</option>
+                        <option value="Retailer">Retailer</option>
+                      </select>
+                    
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Login ID</label>
+                    <input class="form-control" type="text" placeholder="Login ID" id="reg_id">
+                  </div>
+                <div class="form-group">
+                  <label class="control-label">Name</label>
+                  <input class="form-control" type="text" placeholder="Name" id="reg_name">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Location</label>
+                    <input class="form-control" type="text" placeholder="Location" id="reg_location">
+                  </div>
+                <div class="form-group btn-container">
+                  <span class="btn btn-primary btn-block" onclick="register()"><i class="fa fa-unlock fa-lg fa-fw"></i>Register</span>
+                </div>
+                <div class="form-group mt-3">
+                  <p class="semibold-text mb-0"><a href="javascript:void(0)" onclick="showLogin()"><i class="fa fa-angle-left fa-fw"></i> Back to Login</a></p>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <script src="app.js"></script>
+    <script type="text/javascript">
+      // Login Page Flipbox control
+      $('.login-content [data-toggle="flip"]').click(function() {
+      	$('.login-box').toggleClass('flipped');
+      	return false;
+      });
+      $(document).ready(()=> {
+          $('#signup-div').hide();
+        //   $('#login-overlay').hide();
+          $('#signup-overlay').hide();
+          $('#login-div').show();
+      });
+      const showSignup = () => {
+        $('#login-div').hide();
+        $('#signup-div').show();
+      }
+      const showLogin = () => {
+        $('#login-div').show();
+        $('#signup-div').hide();
+      }
+    </script>
+  </body>
+</html>
